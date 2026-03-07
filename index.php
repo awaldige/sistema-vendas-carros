@@ -49,18 +49,19 @@ $vendas_mes = array_reverse($vendas_mes);
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoManager Pro - Dashboard</title>
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🚗</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E🚗%3C/text%3E%3C/svg%3E">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f4f7f6; }
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .card-stats { transition: transform 0.2s; border: none; border-radius: 15px; }
         .card-stats:hover { transform: translateY(-5px); }
         .table-container { background: white; border-radius: 15px; overflow: hidden; }
-        .btn-action { border-radius: 8px; width: 35px; height: 35px; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-action { border-radius: 8px; width: 35px; height: 35px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
         .navbar { background: linear-gradient(45deg, #212529, #343a40); border: none; }
         .bg-faturamento { background: linear-gradient(45deg, #11998e, #38ef7d); color: white; }
         .img-carro { width: 60px; height: 40px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
@@ -69,7 +70,7 @@ $vendas_mes = array_reverse($vendas_mes);
 </head>
 <body>
 
-    <nav class="navbar navbar-dark mb-4 shadow-sm bg-dark">
+    <nav class="navbar navbar-dark mb-4 shadow-sm">
         <div class="container">
             <span class="navbar-brand mb-0 h1">🚗 AutoManager Pro</span>
         </div>
@@ -152,7 +153,6 @@ $vendas_mes = array_reverse($vendas_mes);
                 <div>
                     <a href="relatorio_vendas.php" class="btn btn-outline-success btn-sm me-1">📊 Relatório</a>
                     <a href="gerenciar_lojas.php" class="btn btn-outline-dark btn-sm me-1">🏢 Lojas</a>
-                    <a href="configuracoes.php" class="btn btn-outline-secondary btn-sm me-1">⚙️ Config</a>
                     <a href="cadastrar.php" class="btn btn-success btn-sm px-3">+ Novo Carro</a>
                 </div>
             </div>
@@ -195,9 +195,9 @@ $vendas_mes = array_reverse($vendas_mes);
                                 <td class="text-success fw-bold">R$ <?= number_format($carro['preco'], 2, ',', '.') ?></td>
                                 <td><span class="badge rounded-pill bg-light text-dark border px-3"><?= $carro['loja'] ?? 'S/ Loja' ?></span></td>
                                 <td class="text-center">
-                                    <a href="vender.php?id=<?= $carro['id_carro'] ?>" class="btn btn-success btn-sm btn-action">💰</a>
-                                    <a href="editar.php?id=<?= $carro['id_carro'] ?>" class="btn btn-outline-primary btn-sm btn-action">✏️</a>
-                                    <a href="excluir.php?id=<?= $carro['id_carro'] ?>" class="btn btn-outline-danger btn-sm btn-action" onclick="return confirm('Excluir?')">🗑️</a>
+                                    <a href="vender.php?id=<?= $carro['id_carro'] ?>" class="btn btn-success btn-sm btn-action" title="Vender">💰</a>
+                                    <a href="editar.php?id=<?= $carro['id_carro'] ?>" class="btn btn-outline-primary btn-sm btn-action" title="Editar">✏️</a>
+                                    <a href="excluir.php?id=<?= $carro['id_carro'] ?>" class="btn btn-outline-danger btn-sm btn-action" onclick="return confirm('Deseja excluir este veículo?')" title="Excluir">🗑️</a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -235,7 +235,7 @@ $vendas_mes = array_reverse($vendas_mes);
         }
     });
 
-    // Gráfico de Marcas
+    // Gráfico de Marcas (Doughnut)
     new Chart(document.getElementById('graficoMarcas'), {
         type: 'doughnut',
         data: {
