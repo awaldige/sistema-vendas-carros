@@ -50,6 +50,9 @@ $vendas_mes = array_reverse($vendas_mes);
 <head>
     <meta charset="UTF-8">
     <title>AutoManager Pro - Dashboard</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🚗</text></svg>">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
@@ -166,7 +169,6 @@ $vendas_mes = array_reverse($vendas_mes);
                     </thead>
                     <tbody>
                         <?php
-                        // ADICIONADO c.foto na consulta
                         $sql = "SELECT c.id_carro, c.ano, c.preco, c.foto, mo.nome_modelo, ma.nome_marca, l.nome as loja 
                                 FROM Carro c 
                                 LEFT JOIN Modelo mo ON c.id_modelo = mo.id_modelo
@@ -177,7 +179,6 @@ $vendas_mes = array_reverse($vendas_mes);
                         $result = $conn->query($sql);
 
                         while($carro = $result->fetch_assoc()): 
-                            // Verifica se o arquivo existe, senão usa o padrão
                             $foto_exibicao = (!empty($carro['foto']) && file_exists("uploads/" . $carro['foto'])) ? $carro['foto'] : "sem-foto.jpg";
                         ?>
                             <tr>
