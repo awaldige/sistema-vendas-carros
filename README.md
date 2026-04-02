@@ -30,10 +30,10 @@ O sistema utiliza uma estrutura relacional sólida para garantir a integridade e
 http://awaldige.infinityfree.me/vendascarros/
 
 ## 📸 Prévia
-![IMG_1640](https://github.com/user-attachments/assets/d175f6e3-162d-4f20-903d-d94842f82acb)
-![IMG_1641](https://github.com/user-attachments/assets/4ef3239f-f3b1-4638-bfb2-5d54f00c6bfd)
-![IMG_1642](https://github.com/user-attachments/assets/29e9f3e6-41e5-410a-a33a-675ff87c7c98)
-![IMG_1644](https://github.com/user-attachments/assets/4d4ec2ad-e05b-4f17-b026-d304cc717622)
+
+![Captura de tela 2026-04-02 152136](https://github.com/user-attachments/assets/898dc5c2-bf8b-434d-a9c6-c0fd9b67ecbe)
+![Captura de tela 2026-04-02 151943](https://github.com/user-attachments/assets/1737c6bb-5c19-4853-8cff-3dcd44df0f66)
+![Captura de tela 2026-04-02 152312](https://github.com/user-attachments/assets/b963a66e-80ef-42f0-ae9c-71d776db1d79)
 
 
 
